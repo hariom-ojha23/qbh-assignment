@@ -7,6 +7,7 @@ import { HomeComponent } from './home.component';
 import { HomeAppbarComponent } from '../components/home-appbar/home-appbar.component';
 import { HomeTableComponent } from '../components/home-table/home-table.component';
 import { HomeFormComponent } from '../components/home-form/home-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [{ path: '', component: HomeComponent }]
 
@@ -20,7 +21,8 @@ const routes: Routes = [{ path: '', component: HomeComponent }]
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

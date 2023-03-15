@@ -1,0 +1,56 @@
+<form [formGroup]="clientForm" class="client-form" (ngSubmit)="submitForm()">
+  <div class="field-container">
+    <label class="label" for="name">Name</label>
+    <input formControlName="name" class="textfield" type="text" id="name" />
+    <p
+      class="error-text"
+      *ngIf="Name.errors?.['required'] && (Name.touched || Name.dirty)"
+    >
+      First Name is required.
+    </p>
+    <p
+      class="error-text"
+      *ngIf="(Name.errors?.['pattern']) && (Name.touched || Name.dirty)"
+    >
+      Name should start with an alphabet
+    </p>
+  </div>
+
+  <div class="field-container">
+    <label class="label" for="email">Email Address</label>
+    <input formControlName="email" class="textfield" type="email" id="email" />
+    <p
+      class="error-text"
+      *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)"
+    >
+      Email Address is required.
+    </p>
+    <p
+      class="error-text"
+      *ngIf="(Email.errors?.['pattern']) && (Email.touched || Email.dirty)"
+    >
+      Invalid Email Address
+    </p>
+  </div>
+
+  <div class="field-container">
+    <label class="label" for="phone">Phone Number</label>
+    <input formControlName="phone" class="textfield" type="tel" id="phone" />
+    <p
+      class="error-text"
+      *ngIf="Phone.errors?.['required'] && (Phone.touched || Phone.dirty)"
+    >
+      Phone Number is required.
+    </p>
+    <p
+      class="error-text"
+      *ngIf="(Phone.errors?.['pattern']) && (Phone.touched || Phone.dirty)"
+    >
+      Invalid Phone Number.
+    </p>
+  </div>
+
+  <button [disabled]="clientForm.invalid" type="submit" class="btn submit-btn">
+    Submit
+  </button>
+</form>
