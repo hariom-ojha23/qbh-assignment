@@ -33,7 +33,14 @@ export class HomeService {
                .pipe(catchError(this.handleError))
   }
 
+  generatePdf() {
+    const headers = new HttpHeaders().set('Accept', 'application/pdf')
+    return this.http.get(`${this.baseUrl}/client-info/generate-pdf`, {headers, responseType: 'arraybuffer'})
+           .pipe(catchError(this.handleError))
+  }
+
   handleError(error: HttpErrorResponse) {
+    console.log(error)
     if (error.status === 0) {
       console.error('An error occurred:', error.error.message)
     } else {

@@ -3,7 +3,9 @@
   <div class="main-grid">
     <div class="grid-item table-container">
       <div>
-        <button class="btn export-report-btn">Export as PDF</button>
+        <button (click)="generatePdf()" class="btn export-report-btn">
+          Export as PDF
+        </button>
       </div>
       <app-home-table></app-home-table>
     </div>

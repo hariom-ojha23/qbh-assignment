@@ -35,6 +35,9 @@ export class ClientInfoService {
           { label: "Phone Number", property: 'phone', width: 150, valign: 'center', align: "right", padding: 12, headerColor:"#2196f3", headerOpacity:0.5  }, 
         ],
         datas: clientList,
+        options: {
+          minRowHeight: 30,
+        }
       };
 
 

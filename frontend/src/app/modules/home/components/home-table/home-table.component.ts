@@ -29,7 +29,5 @@ export class HomeTableComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.getAllClientInfo()
-
-    console.log(this.dataSource)
   }
 }

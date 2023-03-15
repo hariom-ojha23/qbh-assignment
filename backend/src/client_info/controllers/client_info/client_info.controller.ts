@@ -18,15 +18,14 @@ export class ClientInfoController {
   }
 
   @Get('generate-pdf')
-  async generatePdf(@Res() response): Promise<void> {
+  async generatePdf(@Res() res): Promise<void> {
     const buffer = await this.clientInfoService.generatePDF()
-
-    response.set({
+    res.set({
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; clientInfo.pdf',
+      'Content-Disposition': 'attachment; filename=clientInfo.pdf',
       'Content-Length': buffer.length
     })
 
-    response.end(buffer)
+    res.end(buffer)
   }
 }
