@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Res } from '@nestjs/common';
 import { AddClientInfoDto } from 'src/client_info/dtos/addClientInfo.dto';
 import { ClientInfoService } from 'src/client_info/services/client_info/client_info.service';
 
@@ -15,5 +15,18 @@ export class ClientInfoController {
   @Post()
   addClientInfo(@Body() clientData: AddClientInfoDto) {
     return this.clientInfoService.addClientInfo(clientData)
+  }
+
+  @Get('generate-pdf')
+  async generatePdf(@Res() response): Promise<void> {
+    const buffer = await this.clientInfoService.generatePDF()
+
+    response.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'attachment; clientInfo.pdf',
+      'Content-Length': buffer.length
+    })
+
+    response.end(buffer)
   }
 }
