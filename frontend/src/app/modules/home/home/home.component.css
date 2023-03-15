@@ -1,0 +1,12 @@
+.main-grid {
+  padding: 10px;
+  padding-top: 75px;
+
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: 10px;
+}
+
+.grid-item {
+  padding: 2em;
+}
