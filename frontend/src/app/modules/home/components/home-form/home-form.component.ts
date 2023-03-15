@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-home-form',
@@ -11,7 +12,7 @@ export class HomeFormComponent implements OnInit {
     
   }
 
-  constructor() {}
+  constructor(private homeService: HomeService) {}
 
   nameRegex = /^[a-zA-z].*/
   emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
@@ -25,8 +26,15 @@ export class HomeFormComponent implements OnInit {
   })
 
   submitForm() {
-    console.log(this.clientForm.invalid)
-    console.log(this.clientForm)
+    const clientInfo = {
+      name: this.clientForm.value.name!!,
+      email: this.clientForm.value.email!!,
+      phone: this.clientForm.value.phone!!
+    }
+
+    this.homeService.addClientInfo(clientInfo).subscribe((res) => {
+      console.log(res)
+    })
   }
 
   get Name() {

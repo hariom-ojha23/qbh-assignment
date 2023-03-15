@@ -8,6 +8,8 @@ import { HomeAppbarComponent } from '../components/home-appbar/home-appbar.compo
 import { HomeTableComponent } from '../components/home-table/home-table.component';
 import { HomeFormComponent } from '../components/home-form/home-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeService } from '../services/home.service';
 
 const routes: Routes = [{ path: '', component: HomeComponent }]
 
@@ -22,7 +24,9 @@ const routes: Routes = [{ path: '', component: HomeComponent }]
     CommonModule,
     RouterModule.forChild(routes),
     MaterialModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [HomeService]
 })
 export class HomeModule { }
