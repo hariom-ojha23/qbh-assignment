@@ -34,10 +34,14 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
+  color: white;
 }
 .submit-btn {
-  background-color: black;
-  color: white;
+  background-color: #007bff;
   margin-top: 20px;
   border-radius: 4px;
+  transition: all 0.2s ease;
+}
+.submit-btn:hover {
+  background-color: hsl(211, 78%, 45%);
 }

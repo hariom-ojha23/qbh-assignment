@@ -10,6 +10,8 @@ import { HomeFormComponent } from '../components/home-form/home-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeService } from '../services/home.service';
+import { HomeDialogComponent } from '../components/home-dialog/home-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [{ path: '', component: HomeComponent }]
 
@@ -18,7 +20,8 @@ const routes: Routes = [{ path: '', component: HomeComponent }]
     HomeComponent,
     HomeAppbarComponent,
     HomeTableComponent,
-    HomeFormComponent
+    HomeFormComponent,
+    HomeDialogComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }]
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDialogModule
   ],
   providers: [HomeService]
 })

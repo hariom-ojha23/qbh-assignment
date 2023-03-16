@@ -3,7 +3,11 @@ table {
   overflow-x: scroll;
 }
 
+.mat-mdc-table {
+  background-color: #fefefe;
+}
+
 th {
+  color: white !important;
   background-color: black !important;
-  color: white;
 }
